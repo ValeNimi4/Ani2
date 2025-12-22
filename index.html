@@ -33,10 +33,11 @@ body {padding: 10px; background-color: darkblue}
 <input id="pikkus" type="number" min="0.1" value="5">
 <br>
 <button id="tee">Tee animatsioon!</button><br>
-<a id="url" /><br><br><br><br><br><p>Litsents: <a href="LICENSE">GPLv3</a>. Tegi <a href="/">valeNimi4</a>
+<a id="url"></a><br><br><br><br><br><p>Litsents: <a href="LICENSE">GPLv3</a>. Tegi <a href="/">valeNimi4</a>
 <script>
 if (location.hash) {pilt.value = location.hash.slice(1)}
 tee.onclick = () => {var link = "https://valeNimi4.github.io/Ani2/pildiani.html#"+encodeURIComponent(pilt.value.replace("https://", "").replace("http://", "")+"|||"+anid.value+"|||"+pikkus.value+"s"); url.href = link; url.innerText = link}
 </script>
 </body>
+
 </html>
