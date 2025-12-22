@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ANI pildiotsing</title>
+</head>
+<body>
+<a href="/Ani2"><img height="50" src="anilogo.svg"><br></a>
+Pilt: <input id="q" placeholder="Otsi pilti"><br>
+MAX tulemuste arv: <input id="l" type="number" value="20"><br>
+<button id="o">Otsi!</button><br>
+<div id="p"></div>
+<script>
+var o = document.getElementById("o");
+
+async function otsi() {
+  const q = document.getElementById("q").value;
+  const l = document.getElementById("l").value;
+  const p = document.getElementById("p");
+
+  p.innerHTML = "Oota...";
+
+const url =
+  "https://commons.wikimedia.org/w/api.php" +
+  "?action=query" +
+  "&list=search" +
+  "&srsearch=" + encodeURIComponent(q) +
+  "&srnamespace=6" +
+  "&srlimit=" + l +
+  "&prop=imageinfo" +
+  "&iiprop=url" +
+  "&iiurlwidth=300" +
+  "&format=json" +
+  "&origin=*";
+
+
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data);
+
+
+  p.innerHTML = "";
+
+if (!data.query || !data.query.search) {
+  p.textContent = "Ei leitud";
+  return;
+}
+
+
+data.query.search.forEach(item => {
+  const a = document.createElement("a");
+  a.href = "/Ani2#https://commons.wikimedia.org/wiki/Special:FilePath/" +
+    encodeURIComponent(item.title);
+  const img = document.createElement("img");
+  img.src =
+    "https://commons.wikimedia.org/w/thumb.php?f=" +
+    encodeURIComponent(item.title.replace("File:", "")) +
+    "&w=300";
+  a.appendChild(img);
+  p.appendChild(a);
+});
+
+
+}
+
+o.addEventListener("click", otsi);
+
+</script>
+
+</body>
+</html>

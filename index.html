@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>valeNimi4 ANI - Animeeri pilt naljakalt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+button, input, select {color: black; font-family: monospace; padding: 10px; border-radius: 10px; background-color: lightgreen; width: 25rem}
+button:hover, button:focus, input:focus, select:focus {background-color: lightblue}
+p,a:link,a,a:visited {font-family: monospace; color: white;}
+body {padding: 10px; background-color: darkblue}
+</style>
+</head>
+<body>
+<img width="75" src="anilogo_valge.svg">
+<p>valeNimi4 Ani - Animeeri pilt naljakalt</p>
+<a href="otsing.html">Pole veel pilti? Siis vajuta siia ning saad lihtsalt valida oma pildi!!!</a>
+<p>Pildi URL:</p>
+<input id="pilt" value="https://valeNimi4.github.io/logo.svg">
+<p>Animatsioon:</p>
+<select id="anid">
+<option value="suurvaike2">Suur-väike (uus)</option>
+<option value="plahvatus">Plahvatus</option>
+<option value="kolmkorraga">3 korraga</option>
+<option value="keerleb2d">Keerleb(2d)</option>
+<option value="keerleb3d">Keerleb(3d)</option>
+<option value="pong">Pong</option>
+<option value="labipaistvus">Läbipaistvuse muutumine</option>
+<option value="suurvaike">Suur-väike(terve ekraan)</option>
+<option value="nt">Näita natuke</option>
+<option value="pole">Puudub</option>
+</select>
+<p>Animatsiooni pikkus:</p>
+<input id="pikkus" type="number" min="0.1" value="5">
+<br>
+<button id="tee">Tee animatsioon!</button><br>
+<a id="url" /><br><br><br><br><br><p>Litsents: <a href="LICENSE">GPLv3</a>. Tegi <a href="/">valeNimi4</a>
+<script>
+if (location.hash) {pilt.value = location.hash.slice(1)}
+tee.onclick = () => {var link = "https://valeNimi4.github.io/Ani2/pildiani.html#"+encodeURIComponent(pilt.value.replace("https://", "").replace("http://", "")+"|||"+anid.value+"|||"+pikkus.value+"s"); url.href = link; url.innerText = link}
+</script>
+</body>
+</html>
