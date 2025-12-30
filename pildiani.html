@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>valeNimi4 ANI - Animeeri pilt naljakalt</title>
+<title>valeNimi4 Ani - Animeeri pilt naljakalt</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
 a, a:visited {font-family: monospace;color: lightblue; background-color: black; top: 0; left: 0; position: absolute; text-decoration: 0; z-index: 10; animation-name: nt; animation-duration: 5s; opacity: 0; visibility: hidden}
@@ -59,4 +59,5 @@ info = decodeURIComponent(window.location.hash);
 if (info) {pilt = decodeURIComponent(info.split("|||")[0].slice(1)); ani=info.split("|||")[1]; pikkus=info.split("|||")[2];
 if (pilt && ani && pikkus) {
 img = document.getElementsByTagName("img")[0]; img.src="https://"+pilt; img.style.animationName = ani; img.style.animationDuration = pikkus}}
+
 </script></body>
